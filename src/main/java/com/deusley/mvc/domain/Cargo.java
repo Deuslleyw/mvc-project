@@ -1,6 +1,7 @@
 package com.deusley.mvc.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "CARGOS")
@@ -12,6 +13,17 @@ public class Cargo extends AbstractEntity<Long> {
     @ManyToOne
     @JoinColumn(name = "id_departamento_fk")
     private Departamento departamento;
+
+    @OneToMany(mappedBy = "cargo")
+    private List<Funcionario> funcionarios;
+
+    public List<Funcionario> getFuncionarios() {
+        return funcionarios;
+    }
+
+    public void setFuncionarios(List<Funcionario> funcionarios) {
+        this.funcionarios = funcionarios;
+    }
 
     public String getNome() {
         return nome;
