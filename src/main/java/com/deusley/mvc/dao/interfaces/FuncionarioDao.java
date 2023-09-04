@@ -11,7 +11,7 @@ public interface FuncionarioDao {
 
     void update (Funcionario funcionario);
 
-    void delete (Funcionario funcionario);
+    void delete (Long id);
 
     Funcionario findById(Long id);
 

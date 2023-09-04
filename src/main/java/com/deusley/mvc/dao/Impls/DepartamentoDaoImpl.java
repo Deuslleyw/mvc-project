@@ -9,8 +9,5 @@ import org.springframework.stereotype.Repository;
 public class DepartamentoDaoImpl extends AbstractDao<Departamento, Long> implements DepartamentoDao {
 
 
-    @Override
-    public void delete(Departamento departamento) {
 
     }
-}

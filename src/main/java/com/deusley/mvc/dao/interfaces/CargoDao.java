@@ -10,7 +10,7 @@ public interface CargoDao {
 
     void update (Cargo cargo);
 
-    void delete (Cargo cargo);
+    void delete (Long id);
 
     Cargo findById(Long id);
 
