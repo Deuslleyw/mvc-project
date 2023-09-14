@@ -1,5 +1,6 @@
 package com.deusley.mvc.domain;
 
+
 import javax.persistence.*;
 import java.util.List;
 
