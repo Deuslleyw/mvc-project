@@ -16,6 +16,7 @@ public class DepartamentoServiceImpl implements DepartamentoService {
     private DepartamentoDao dao;
 
     @Override
+    @Transactional
     public void salvar(Departamento departamento) {
         dao.save(departamento);
 
