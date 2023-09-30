@@ -1,6 +1,6 @@
-<div th:if="${Success} != null">
+<div th:if="${success} != null">
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="oi io-check"></i>
+        <i class="oi oi-check"></i>
         <span>
             <strong th:text="${success}"></strong>
         </span>
@@ -9,6 +9,7 @@
         </button>
     </div>
 </div>
+
 <div th:if="${fail} != null">
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <i class="oi oi-check"></i>
