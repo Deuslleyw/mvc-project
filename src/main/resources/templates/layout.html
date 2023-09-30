@@ -64,6 +64,12 @@
 		});
 		
 		$(document).ready(function(){
+
+		setTimeout(function(){
+		$(".alert").alert('close');
+		}, 4000);
+
+
 		    $(".navbar-toggle").click(function(){
 		        $(".sidebar").toggleClass("sidebar-open");
 		    })
