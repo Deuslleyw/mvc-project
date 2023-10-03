@@ -66,9 +66,10 @@
 		$(document).ready(function(){
 
 		setTimeout(function(){
-		$(".alert").alert('close');
+		$(".alert").fadeOut("slow", function(){
+		$(this).alert('close');
+        });
 		}, 4000);
-
 
 		    $(".navbar-toggle").click(function(){
 		        $(".sidebar").toggleClass("sidebar-open");
