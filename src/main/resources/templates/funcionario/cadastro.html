@@ -66,8 +66,7 @@
                     <label for="cargo">Cargo</label>
                     <select id="cargo" class="form-control" th:field="*{cargo}">
                         <option value="">Selecione...</option>
-                        <option th:each="cgo: ${cargos}" th:value="${cgo.id}" th:text="$cgo.nome"></option>
-
+                        <option th:each="cgo : ${cargos}" th:value="${cgo.id}" th:text="${cgo.nome}">Developer</option>
                     </select>
                     <div class="invalid-feedback">
 
@@ -135,7 +134,8 @@
                     </div>
                 </div>
             </div>
-            <input type="hidden" id="id" name="id" value=""/>
+            <input type="hidden" id="id" th:field="*{id}"/>
+            <input type="hidden" id="endereco.id" th:field="*{endereco.id}"/>
             <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
         </form>
     </div>

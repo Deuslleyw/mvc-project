@@ -24,8 +24,6 @@ public class CargoController {
 
     @GetMapping("/cadastrar")
     public String cadastrar(Cargo cargo) {
-
-
         return "/cargo/cadastro";
     }
 
