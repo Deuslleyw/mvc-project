@@ -8,10 +8,7 @@ import com.deusley.mvc.service.FuncionarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -37,20 +34,44 @@ public class FuncionarioController {
         return "/funcionario/lista";
 
     }
+
     @PostMapping("/salvar")
-    public String salvar(Funcionario funcionario, RedirectAttributes attr){
+    public String salvar(Funcionario funcionario, RedirectAttributes attr) {
         service.salvar(funcionario);
         attr.addFlashAttribute("success", "Funcionario inserido com sucesso");
         return "redirect:/funcionarios/cadastrar";
     }
+
     @ModelAttribute("cargos")
-    public List<Cargo> getCargos(){
+    public List<Cargo> getCargos() {
         return cargoService.buscarTodos();
     }
 
     @ModelAttribute("ufs")
-    public UF [] getUfs(){
+    public UF[] getUfs() {
         return UF.values();
     }
+
+    @GetMapping("/editar/{id}")
+    public String preEditar(@PathVariable("id") Long id, ModelMap model) {
+        model.addAttribute("funcionario", service.buscarPorId(id));
+        return "funcionario/cadastro";
+
+    }
+
+    @PostMapping("/editar")
+    public String editar(Funcionario funcionario, RedirectAttributes attr) {
+        service.editar(funcionario);
+        attr.addFlashAttribute("success", "Editado com sucesso");
+        return "redirect:/funcionarios/cadastrar";
+    }
+
+    @GetMapping("/excluir/{id}")
+    public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
+        service.excluir(id);
+        attr.addFlashAttribute("success", "Excluido com sucesso");
+        return "redirect:/funcionarios/listar";
+    }
+
 
 }
