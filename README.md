@@ -1,2 +1,2 @@
 # mvc-project
-mvc and Thymeleaf
+mvc and Thymeleaf  1.0
