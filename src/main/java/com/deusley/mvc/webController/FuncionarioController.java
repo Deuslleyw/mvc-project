@@ -72,6 +72,11 @@ public class FuncionarioController {
         attr.addFlashAttribute("success", "Excluido com sucesso");
         return "redirect:/funcionarios/listar";
     }
+    @GetMapping("/buscar/nome")
+    public String getPorNome(@RequestParam("nome") String nome, ModelMap model){
+        model.addAttribute("funcionarios", service.buscarPorNome(nome));
+        return "/funcionario/lista";
+    }
 
 
 }
