@@ -22,10 +22,10 @@ public interface FuncionarioDao {
 
     List<Funcionario> findByCargoId(Long id);
 
-    List<Funcionario> findByDataEntradaEsaida(LocalDate entrada, LocalDate saida);    ////
+    List<Funcionario> findByDataEntradaEsaida(LocalDate entrada, LocalDate saida);
 
-    List<Funcionario> findByDataEntrada(LocalDate entrada);    ///
+    List<Funcionario> findByDataEntrada(LocalDate entrada);
 
-    List<Funcionario> findByDataSaida(LocalDate saida);    ///
+    List<Funcionario> findByDataSaida(LocalDate saida);
 }
 

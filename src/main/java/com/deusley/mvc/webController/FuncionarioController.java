@@ -6,6 +6,7 @@ import com.deusley.mvc.domain.UF;
 import com.deusley.mvc.service.CargoService;
 import com.deusley.mvc.service.FuncionarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -84,8 +85,10 @@ public class FuncionarioController {
         return "/funcionario/lista";
 }
     @GetMapping("/buscar/data")
-    public String getPorDatas(@RequestParam("entrada")LocalDate entrada,
-                              @RequestParam("saida") LocalDate saida,
+    public String getPorDatas(@RequestParam(value = "entrada" ,required = false)
+                                  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)  LocalDate entrada,
+                              @RequestParam(value = "saida", required = false )
+                                  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)  LocalDate saida,
                               ModelMap model) {
         model.addAttribute("funcionarios", service.buscarPorDatas(entrada, saida));
         return "/funcionario/lista";

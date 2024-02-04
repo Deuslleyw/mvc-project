@@ -25,27 +25,25 @@ public class FuncionarioDaoImpl extends AbstractDao<Funcionario, Long> implement
     @Override
     public List<Funcionario> findByDataEntradaEsaida(LocalDate entrada, LocalDate saida) {
         String jpql = new StringBuilder("select f from Funcionario f  ")
-                .append("where f.dataEntrada >= ?1 and f.dataSaida <= ?2")
-                .append("order By f.dataEntrada asc ")
+                .append("where f.dataEntrada >= ?1 and f.dataSaida <= ?2 ")
+                .append("order by f.dataEntrada asc")
                 .toString();
         return createQuery(jpql, entrada, saida);
     }
     @Override
     public List<Funcionario> findByDataEntrada(LocalDate entrada) {
-        String jpql = new  StringBuilder("select f from Funcionario f")
-                .append("where f.dataEntrada = 1?")
+        String jpql = new  StringBuilder("select f from Funcionario f ")
+                .append("where f.dataEntrada = ?1 ")
                 .append("order by f.dataEntrada asc")
                 .toString();
         return createQuery(jpql, entrada);
     }
     @Override
     public List<Funcionario> findByDataSaida(LocalDate saida) {
-        String jpql = new  StringBuilder("select f from Funcionario f")
-                .append("where f.dataSaida = 1?")
+        String jpql = new  StringBuilder("select f from Funcionario f ")
+                .append("where f.dataSaida = ?1 ")
                 .append("order by f.dataSaida asc")
                 .toString();
         return createQuery(jpql, saida);
     }
 }
-
-///em teste

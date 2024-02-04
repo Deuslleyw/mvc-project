@@ -63,7 +63,7 @@ public class FuncionarioServiceImpl implements FuncionarioService {
 
     @Override
     public List<Funcionario> buscarPorDatas(LocalDate entrada, LocalDate saida) {
-        if (entrada != null && saida != null) {
+        if (entrada != null  && saida != null) {
             return dao.findByDataEntradaEsaida(entrada, saida);
         } else if (entrada != null) {
             return dao.findByDataEntrada(entrada);
