@@ -11,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -77,6 +78,17 @@ public class FuncionarioController {
         model.addAttribute("funcionarios", service.buscarPorNome(nome));
         return "/funcionario/lista";
     }
-
-
+    @GetMapping("/buscar/cargo")
+    public String getPorCargo(@RequestParam("id") Long id, ModelMap model){
+        model.addAttribute("funcionarios", service.buscarPorCargo(id));
+        return "/funcionario/lista";
 }
+    @GetMapping("/buscar/data")
+    public String getPorDatas(@RequestParam("entrada")LocalDate entrada,
+                              @RequestParam("saida") LocalDate saida,
+                              ModelMap model) {
+        model.addAttribute("funcionarios", service.buscarPorDatas(entrada, saida));
+        return "/funcionario/lista";
+
+
+}}

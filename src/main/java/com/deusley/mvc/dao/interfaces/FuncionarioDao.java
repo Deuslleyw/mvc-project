@@ -2,6 +2,7 @@ package com.deusley.mvc.dao.interfaces;
 
 import com.deusley.mvc.domain.Funcionario;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface FuncionarioDao {
@@ -19,5 +20,12 @@ public interface FuncionarioDao {
 
     List<Funcionario> findByNome(String nome);
 
+    List<Funcionario> findByCargoId(Long id);
+
+    List<Funcionario> findByDataEntradaEsaida(LocalDate entrada, LocalDate saida);    ////
+
+    List<Funcionario> findByDataEntrada(LocalDate entrada);    ///
+
+    List<Funcionario> findByDataSaida(LocalDate saida);    ///
 }
 
