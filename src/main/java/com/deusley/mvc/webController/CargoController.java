@@ -7,9 +7,11 @@ import com.deusley.mvc.service.DepartamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -35,7 +37,11 @@ public class CargoController {
     }
 
     @PostMapping("/salvar")
-    public String salvar(Cargo cargo, RedirectAttributes attr) {
+    public String salvar(@Valid Cargo cargo, BindingResult result, RedirectAttributes attr) {
+
+        if (result.hasErrors()){
+            return "/cargo/cadastro";
+        }
         cargoService.salvar(cargo);
         attr.addFlashAttribute("success", "Cargo inserido com sucesso");
         return "redirect:/cargos/cadastrar";
@@ -52,7 +58,12 @@ public class CargoController {
         return "cargo/cadastro";
     }
     @PostMapping("/editar")
-    public String editar(Cargo cargo, RedirectAttributes attr){
+    public String editar(@Valid Cargo cargo,BindingResult result , RedirectAttributes attr){
+
+        if (result.hasErrors()){
+            return "/cargo/cadastro";
+        }
+
         cargoService.editar(cargo);
         attr.addFlashAttribute("success", "Atualizado com sucesso");
         return "redirect:/cargos/cadastrar";
