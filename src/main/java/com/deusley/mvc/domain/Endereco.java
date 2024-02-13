@@ -32,7 +32,7 @@ public class Endereco extends AbstractEntity<Long> {
     private UF uf;
 
     @NotBlank
-    @Size(min = 3, max = 9, message = "{Size.endereco.cep}")
+    @Size(min = 9, max = 9, message = "{Size.endereco.cep}")
     @Column(nullable = false, length = 9)
     private String cep;
 
